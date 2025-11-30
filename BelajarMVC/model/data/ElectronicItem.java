@@ -10,7 +10,7 @@ public class ElectronicItem extends Item {
 
     @Override
     public void getDetails() {
-        System.out.println(name + "is an Electronic Item w/ details: " + electronicItemDetails);
+        System.out.println(name + " is an Electronic Item w/ details: " + electronicItemDetails);
 
     }
 }

@@ -1,5 +1,4 @@
 package BelajarMVC.model.data;
-
 public abstract class Item {
     public String name;
     public int stock;

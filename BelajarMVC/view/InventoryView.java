@@ -3,9 +3,10 @@ package BelajarMVC.view;
 import java.util.ArrayList;
 
 import BelajarMVC.controller.InventoryController;
+import BelajarMVC.model.data.ElectronicItem;
 import BelajarMVC.model.data.Item;
 import BelajarMVC.model.data.ItemType;
-
+import BelajarMVC.model.data.PerishableItem;
 import Utils.CLIUtil;
 
 public class InventoryView {
@@ -31,7 +32,7 @@ public class InventoryView {
 
         while (menu != 0) {
             printMenu();
-            menu = CLIUtil.getInt(); 
+            menu = CLIUtil.getInt();
 
             switch (menu) {
                 case 1:
@@ -41,7 +42,7 @@ public class InventoryView {
                     inventoryController.getAllItems();
                     break;
                 case 0:
- 
+
                     break;
                 default:
                     System.out.println("Invalid option.");
@@ -55,22 +56,25 @@ public class InventoryView {
         System.out.println("2. Electronic");
         int typeChoice = CLIUtil.getInt();
         ItemType type;
-        if (typeChoice == 1) {
-            type = ItemType.PERISHABLE;
-        } else {
-            type = ItemType.ELECTRONIC;
-        }
 
         System.out.print("input name: ");
         String name = CLIUtil.getString();
 
-        System.out.print("input stock");
+        System.out.print("input stock: ");
         int stock = CLIUtil.getInt();
 
-        System.out.print("input details");
+        System.out.print("input details: ");
         String details = CLIUtil.getString();
 
-        inventoryController.addItem(name, stock, type, details);
+        Item item;
+
+        if (typeChoice == 1) {
+            item = new PerishableItem(name, stock, details);
+        } else {
+            item = new ElectronicItem(name, stock, details);
+        }
+
+        inventoryController.addItem(item);
     }
 
     public void printAllItem(ArrayList<Item> itemList) {

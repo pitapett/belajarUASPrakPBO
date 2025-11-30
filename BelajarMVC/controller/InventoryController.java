@@ -1,13 +1,7 @@
 package BelajarMVC.controller;
-
-import java.util.ArrayList;
-
 import BelajarMVC.model.ItemRepository;
 import BelajarMVC.model.NullItemException;
-import BelajarMVC.model.data.ElectronicItem;
 import BelajarMVC.model.data.Item;
-import BelajarMVC.model.data.ItemType;
-import BelajarMVC.model.data.PerishableItem;
 import BelajarMVC.view.InventoryView;
 
 public class InventoryController {
@@ -27,17 +21,13 @@ public class InventoryController {
         inventoryView.printAllItem(itemRepository.getItemList());
     }
 
-    public void addItem(String name, int stock, ItemType type, String details) {
+    public void addItem(Item item) {
         try {
-            if (type == ItemType.PERISHABLE) {
-                PerishableItem item = new PerishableItem(name, stock, details);
-                itemRepository.addItem(item);
-            } else {
-                ElectronicItem item = new ElectronicItem(name, stock, details);
-                itemRepository.addItem(item);
-            }
+            itemRepository.addItem(item);
         } catch (NullItemException nie) {
             System.out.println("item was null");
+        } finally {
+            System.out.println("[LOG] add item was executed");
         }
 
     }

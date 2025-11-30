@@ -19,7 +19,7 @@ public class CLIUtil {
             inputString = scn.nextLine();
             try {
                 inputToInt = Integer.parseInt(inputString);
-
+                isValidInput = true;
             } catch (NumberFormatException nfe) {
                 System.out.println("Invalid input, please enter a nuumber.");
             }
@@ -37,7 +37,6 @@ public class CLIUtil {
 
             try {
                 inputToDouble = Double.parseDouble(inputString);
-
                 isValidInput = true;
 
             } catch (NumberFormatException nfe) {

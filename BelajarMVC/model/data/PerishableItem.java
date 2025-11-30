@@ -1,5 +1,4 @@
 package BelajarMVC.model.data;
-
 public class PerishableItem extends Item {
     private String perishableItemDetails;
 
@@ -10,7 +9,7 @@ public class PerishableItem extends Item {
 
     @Override
     public void getDetails() {
-        System.out.println(name + "is a Perishable Item w/ details: " + perishableItemDetails);
+        System.out.println(name + " is a Perishable Item w/ details: " + perishableItemDetails);
 
     }
 }
